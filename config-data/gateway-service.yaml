@@ -1,0 +1,22 @@
+server:
+  port: 8070
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: ping-service
+          uri: lb://ping-service
+          predicates:
+            - Path=/ping/**
