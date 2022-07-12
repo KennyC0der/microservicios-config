@@ -20,3 +20,7 @@ spring:
           uri: lb://ping-service
           predicates:
             - Path=/ping/**
+        - id: switchs-service
+          uri: lb://switchs-service
+          predicates:
+            - Path=/switchs/**
